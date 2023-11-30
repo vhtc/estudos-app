@@ -16,11 +16,11 @@ app.use(express.json());
 const db = new sqlite3.Database('estudos.db');
 
 // Cria uma tabela para armazenar nomes, idades e salas
-db.run('CREATE TABLE IF NOT EXISTS pessoas (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, idade INTEGER, sala INTEGER, FOREIGN KEY(sala) REFERENCES salas(id))');
+db.run('CREATE TABLE IF NOT EXISTS pessoas (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, idade INTEGER, sala INTEGER, UNIQUE (nome, sala), FOREIGN KEY(sala) REFERENCES salas(id))');
 
 // Cria uma tabela para armazenar as salas se não existir
 // db.run('CREATE TABLE IF NOT EXISTS salas (id INTEGER PRIMARY KEY AUTOINCREMENT, nomeSala TEXT)');
-db.run('CREATE TABLE IF NOT EXISTS salas (id INTEGER PRIMARY KEY AUTOINCREMENT, nomeSala TEXT, senha TEXT)');
+db.run('CREATE TABLE IF NOT EXISTS salas (id INTEGER PRIMARY KEY AUTOINCREMENT, nomeSala TEXT UNIQUE, senha TEXT)');
 
 
 // Rota para obter todas as pessoas do banco de dados com informações da sala
@@ -148,7 +148,7 @@ app.post('/salas/login', (req, res) => {
       return res.status(401).json({ error: 'Sala não encontrada ou senha incorreta.' });
     }
 
-    res.json({ id: salaRow.id });
+    res.json({ id: salaRow.id, nomeSala: salaRow.nomeSala });
   });
 });
 

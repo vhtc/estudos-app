@@ -53,11 +53,16 @@ function App() {
       <h2>Pessoas:</h2>
       <ul>
         {pessoas.map(pessoa => (
-          <li key={pessoa.id}>{pessoa.nome}, {pessoa.sala ? pessoa.sala : 'Sem sala'}, {pessoa.idade} anos</li>
+          pessoa.sala === 'vhtc' && (
+            <li key={pessoa.id}>{pessoa.nome}, {pessoa.sala ? pessoa.sala : 'Sem sala'}, {pessoa.idade} anos</li>
+          )
         ))}
       </ul>
+      <ul>
 
-      <Routes1/>
+      </ul>
+
+      <Routes1 />
     </div>
   );
 }

@@ -22,3 +22,5 @@ npm install react-router-dom
 ### Execução do projeto
 dentro da pasta estudos-app, no terminal digite 'node server.js'
 dentro da pasta estudos-app-client, no terminal digite 'npm start'
+
+## Editar o arquivo ./src/LocalServer.js

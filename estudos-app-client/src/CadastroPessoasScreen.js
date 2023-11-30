@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { LocalServerUrl } from './LocalServer';
 
 function CadastroPessoasScreen() {
   const [pessoas, setPessoas] = useState([]);
@@ -11,7 +12,7 @@ function CadastroPessoasScreen() {
   // Função para carregar as salas disponíveis
   const carregarSalas = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/salas');
+      const response = await axios.get(`http://${LocalServerUrl}/salas`);
       setSalas(response.data);
     } catch (error) {
       console.error('Erro ao carregar salas:', error);
@@ -21,7 +22,8 @@ function CadastroPessoasScreen() {
   // Função para carregar as pessoas do servidor
   const carregarPessoas = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/pessoas');
+      const response = await axios.get(`http://${LocalServerUrl}/pessoas`);
+      // console.log(LocalServerUrl)
       setPessoas(response.data);
     } catch (error) {
       console.error('Erro ao carregar pessoas:', error);
@@ -40,7 +42,7 @@ function CadastroPessoasScreen() {
 
   const adicionarPessoa = async () => {
     try {
-      await axios.post('http://localhost:3001/pessoas', { nome, idade, sala });
+      await axios.post(`http://${LocalServerUrl}/pessoas`, { nome, idade, sala });
       // Agora, as pessoas serão recarregadas automaticamente devido ao UseEffect
       setNome('');
       setIdade('');

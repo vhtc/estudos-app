@@ -8,9 +8,12 @@ function LoginScreen() {
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:3001/salas/login', { nomeSala, senha });
-      alert(`Login bem-sucedido! ID da Sala: ${response.data.id}`);
+      console.log(response.data);
+
+
+      alert(`Login bem-sucedido! ID da Sala: ${response.data.nomeSala}`);
     } catch (error) {
-      alert(`Erro ao fazer login: ${error.response.data.error}`);
+      alert(`Erro ao fazer login`);
     }
   };
 
