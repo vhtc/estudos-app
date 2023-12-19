@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SalasScreen from './SalasScreen';
-import CadastroPessoasScreen from './CadastroPessoasScreen';
+import CadastroPessoasScreen from './CadastroUsuario';
 import LoginScreen from './LoginScreen';
 
 

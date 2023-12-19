@@ -36,7 +36,7 @@ function App() {
   return (
     <div>
       <h1>Estudos App</h1>
-      <div>
+      {/* <div>
         <label>Nome: </label>
         <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
       </div>
@@ -57,7 +57,7 @@ function App() {
             <li key={pessoa.id}>{pessoa.nome}, {pessoa.sala ? pessoa.sala : 'Sem sala'}, {pessoa.idade} anos</li>
           )
         ))}
-      </ul>
+      </ul> */}
       <ul>
 
       </ul>

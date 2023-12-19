@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // Importe os componentes que você criou
 import LoginScreen from './LoginScreen';
 import SalasScreen from './SalasScreen';
-import CadastroPessoasScreen from './CadastroPessoasScreen';
+import CadastroUsuario from './CadastroUsuario';
 import AppSalas from './AppSalas';
 import CadastroSalasScreen from './CadastroSalaScreen';
 import VisualizarPessoasScreen from './VisualizarPessoasScreen';
@@ -24,7 +24,7 @@ const Routes1 = () => {
                 <Route exact path={"/salas"} element={<SalasScreen />} />
 
                 {/* Rota para a tela de cadastro de pessoas */}
-                <Route exact path={"/cadastro-pessoas"} element={<CadastroPessoasScreen />} />
+                <Route exact path={"/cadastro-usuario"} element={<CadastroUsuario />} />
 
                 {/* Rota padrão, redireciona para a tela de login */}
                 <Route exact path={"/appsalas"} element={<AppSalas />} />
